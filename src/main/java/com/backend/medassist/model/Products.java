@@ -11,27 +11,27 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Products {
     @Id
-    @Column(name="productId")
-    private Integer productId;
+//    @Column(name="ProductId")
+    private Integer productID;
 
-    @Column(name="productName")
+//    @Column(name="ProductName")
     private String productName;
 
-    @Column(name="Uses", columnDefinition = "TEXT")
-    private String Uses;
+    @Column(columnDefinition = "TEXT")
+    private String uses;
 
-    @Column(name="Side_effects", columnDefinition = "TEXT")
-    private String Side_effects;
+    @Column(columnDefinition = "TEXT")
+    private String side_effects;
 
-    @Column(name="Image_url")
-    private String Image_url;
+//    @Column(name="image_url")
+    private String image_url;
 
-    @Column(name="Manufacturer")
-    private String Manufacturer;
+//    @Column(name="manufacturer")
+    private String manufacturer;
 }

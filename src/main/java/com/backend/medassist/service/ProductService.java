@@ -10,10 +10,22 @@ import java.util.Optional;
 @Service
 public class ProductService {
     @Autowired
-    private ProductRepository ProductRepository;
+    ProductRepository ProductRepository;
     public Products getProductById(Integer productId){
-        Products product= ProductRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product with productId not found"));
+        System.out.println("Calling getProductById in service: productID: "+productId);
+        try {
+//        Products product= ProductRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product with productId not found"));
+            Products product = ProductRepository.findByProductID(productId);
+            if (product == null) {
+                throw new RuntimeException("Product not found");
+            }
+            System.out.println("products data is: "+product);
+            System.out.println("productId is: "+product.toString());
         return product;
+        }
+        catch (Exception e) {
+            throw e;
+        }
     }
 
 }
